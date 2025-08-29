@@ -1,0 +1,18 @@
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: Bajaj
+
+provider:
+  name: aws
+  runtime: python3.11
+  region: us-east-1
+
+functions:
+  process:
+    handler: handler.process
+    events:
+      - http:
+          path: bfhl
+          method: post
+
+# plugins:
+#   - serverless-offline
